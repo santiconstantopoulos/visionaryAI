@@ -19,7 +19,7 @@ export function SolutionsBlueprint() {
     { title: "Arquitectura e Infraestructura", desc: "Diseñamos e instalamos el stack tecnológico. Creamos bases sólidas con código seguro y APIs integradas." },
     { title: "Desarrollo de IA a Medida", desc: "Integramos modelos de lenguaje y agentes sobre tu infraestructura. Evolución digital que potencia a tu equipo de desarrollo o ventas." },
     { title: "Pruebas y Escalabilidad", desc: "El código pasa por Q&A. El sistema responde, clasifica y ejecuta lógica de negocio de manera confiable." },
-    { title: "Mantenimiento y Evolución", desc: "Un stack tecnológico requiere mantenimiento. Monitoreamos y iteramos para garantizar robustez a largo plazo." },
+    { title: "Mantenimiento y Evolución", desc: "Un stack tecnológico requiere mantenimiento. Monitoreamos e iteramos para garantizar robustez a largo plazo." },
   ] : [
     { title: "Operational Debt Diagnosis", desc: "We audit your current architecture and processes. We map exactly where frictions and process improvement opportunities lie." },
     { title: "Architecture & Infrastructure", desc: "We design and install the tech stack. We create solid foundations with secure code and integrated APIs." },
