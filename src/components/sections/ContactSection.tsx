@@ -41,9 +41,6 @@ export function ContactSection() {
         setStatus('success');
         setFormData({ name: '', email: '', desc: '' });
 
-        // FormSubmit requires a first activation click on the target email
-        alert('¡Mensaje enviado con éxito! (NOTA AL DEV: Si es tu primer envío, andá a santiagocons1206@gmail.com y dale "Activar" al correo de FormSubmit).');
-
         setTimeout(() => setStatus('idle'), 5000);
       } else {
         const data = await res.json();
@@ -79,6 +76,7 @@ export function ContactSection() {
     namePlace: "Ej: Elon Musk...",
     emailPlace: "ejemplo@dominio.com...",
     descPlace: "Ej: Landing page personalizada...",
+    toastSuccess: "Mensaje enviado con éxito. En breve atenderemos tu consulta.",
   } : {
     p1: "Schedule a free discovery call. No strings attached. Discover how technology can scale your operation.",
     btnWA: "Send WhatsApp Message",
@@ -94,6 +92,7 @@ export function ContactSection() {
     namePlace: "e.g. Elon Musk...",
     emailPlace: "example@domain.com...",
     descPlace: "e.g. Custom landing page...",
+    toastSuccess: "Message sent successfully. We will attend to your request shortly.",
   };
 
   return (
@@ -181,6 +180,13 @@ export function ContactSection() {
 
         </div>
       </div>
+      
+      {status === 'success' && (
+        <div className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 bg-gray-900 border border-gray-800 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50">
+          <CheckCircle2 className="w-5 h-5 text-green-400" />
+          <span className="font-medium text-sm">{texts.toastSuccess}</span>
+        </div>
+      )}
     </section>
   );
 }
