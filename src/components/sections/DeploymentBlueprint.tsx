@@ -1,17 +1,36 @@
+"use client";
 import { Search, PenTool, Rocket, Activity } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export function DeploymentBlueprint() {
-  const steps = [
-    { title: "Descubrimiento", description: "Recibes un análisis a fondo de tus operaciones actuales para identificar ineficiencias y oportunidades.", icon: Search },
-    { title: "Prototipado Ágil", description: "Validas una solución preliminar rápida para asegurar que resuelves el problema correcto.", icon: PenTool },
-    { title: "Implementación & Escala", description: "Implementas la solución final, tu equipo se capacita y cuentas con mantenimiento evolutivo.", icon: Rocket },
-  ];
+  const { lang } = useLanguage();
+
+  const texts = lang === 'es' ? {
+    title: 'Proceso de',
+    titleHighlight: 'Implementación',
+    steps: [
+      { title: "Descubrimiento", description: "Recibes un análisis a fondo de tus operaciones actuales para identificar ineficiencias y oportunidades." },
+      { title: "Prototipado Ágil", description: "Validas una solución preliminar rápida para asegurar que resuelves el problema correcto." },
+      { title: "Implementación & Escala", description: "Implementas la solución final, tu equipo se capacita y cuentas con mantenimiento evolutivo." },
+    ]
+  } : {
+    title: 'Implementation',
+    titleHighlight: 'Process',
+    steps: [
+      { title: "Discovery", description: "You receive an in-depth analysis of your current operations to identify inefficiencies and opportunities." },
+      { title: "Agile Prototyping", description: "You validate a quick preliminary solution to ensure you're solving the right problem." },
+      { title: "Implementation & Scale", description: "You implement the final solution, your team gets trained, and you have ongoing maintenance." },
+    ]
+  };
+
+  const icons = [Search, PenTool, Rocket];
+  const steps = texts.steps.map((step, i) => ({ ...step, icon: icons[i] }));
 
   return (
     <section className="py-24 md:py-32 bg-white border-t border-gray-100">
       <div className="container mx-auto px-6 max-w-5xl text-center">
         <h2 className="font-heading text-3xl md:text-5xl font-extrabold tracking-tighter text-gray-900 mb-16 md:mb-24">
-          Proceso de <span className="text-gray-400">Implementación</span>
+          {texts.title} <span className="text-gray-400">{texts.titleHighlight}</span>
         </h2>
         
         <div className="flex flex-col md:flex-row justify-between items-center relative gap-12 md:gap-4 before:absolute before:inset-0 before:top-1/2 before:-translate-y-1/2 before:w-full before:h-[1px] before:bg-gray-100 before:-z-10 before:hidden md:before:block">
